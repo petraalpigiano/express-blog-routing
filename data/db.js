@@ -1,3 +1,4 @@
+const port = 3000;
 const posts = [
   {
     id: 1,
@@ -50,4 +51,4 @@ const posts = [
   },
 ];
 
-module.exports = { posts };
+export { posts, port };
