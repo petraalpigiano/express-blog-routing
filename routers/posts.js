@@ -1,9 +1,11 @@
-import express, { Router } from "express";
+import express from "express";
+import { posts } from "../data/db.js";
 const router = express.Router();
 
 // INDEX
 router.get("/", (req, res) => {
-  res.send("Mostro tutti i post");
+  //   res.send("Mostro tutti i post");
+  res.json(posts);
 });
 // SHOW
 router.get("/:id", (req, res) => {
@@ -31,3 +33,4 @@ router.delete("/:id", (req, res) => {
 });
 
 export default router;
+// Provare a restituire un singolo post dalla rotta show, sempre in formato json
