@@ -9,9 +9,16 @@ router.get("/", (req, res) => {
 });
 // SHOW
 router.get("/:id", (req, res) => {
-  const id = req.params.id;
-  res.send(`Ecco il post numero: ${id}`);
+  const id = parseInt(req.params.id);
+  //   res.send(`Ecco il post numero: ${id}`);
+  res.json(
+    posts.find(function (currentPost) {
+      const currentId = currentPost.id;
+      return currentId === id;
+    })
+  );
 });
+
 // CREATE
 router.post("/", (req, res) => {
   res.send("Ho creato un nuovo post");
@@ -33,4 +40,3 @@ router.delete("/:id", (req, res) => {
 });
 
 export default router;
-// Provare a restituire un singolo post dalla rotta show, sempre in formato json
