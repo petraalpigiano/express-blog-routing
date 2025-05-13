@@ -35,8 +35,14 @@ router.patch("/:id", (req, res) => {
 });
 // DELETE
 router.delete("/:id", (req, res) => {
-  const id = req.params.id;
-  res.send(`Ho eliminato il post numero: ${id}`);
+  const id = parseInt(req.params.id);
+  //   res.send(`Ho eliminato il post numero: ${id}`);
+  res.json(
+    posts.filter(function (currentPost) {
+      const currentId = currentPost.id;
+      return currentId !== id;
+    })
+  );
 });
 
 export default router;
